@@ -1,0 +1,24 @@
+extends base
+
+
+block content
+  if user
+    nav(style={'padding': '0rem 1rem'}).btn
+      ul
+        li: a(href='/') Quit
+  main.main
+    .stock-form
+      h2.heading-secondary.ma-bt-lg Put your Stock Script
+      form.form.form--stock
+        .form__group
+          label.form__label(for='email') Stock
+          input#stock.form__input(type='text', placeholder='IBM', required)
+        .form__group
+          button.btn.btn--green Scan
+
+        h2.heading-secondary.ma-bt-lg Previous searches
+        if allStocks
+          each stock in allStocks    
+            nav.user-view__menu
+                ul.side-nav
+                  li: a(href=`/stock/${stock.sign}`) #{stock.sign}

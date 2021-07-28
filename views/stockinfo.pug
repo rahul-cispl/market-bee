@@ -1,0 +1,18 @@
+extends base
+
+
+block content
+  main.main
+    nav.user-view__menu
+      ul.side-nav
+        li: a(href='/stock') Search again
+    if sign
+        h2.heading-secondary.ma-bt-lg Search result for #{sign}
+    if scanResult
+        each scan in scanResult    
+            nav.user-view__menu
+                ul.side-nav
+                    li: a(href='#')  closing price : #{scan.close}
+                    li: a(href='#')  Max price : #{scan.max}
+                    li: a(href='#')  Stock volume : #{scan.volume}
+                    li: a(href='#')  dividend : #{scan.dividend}
